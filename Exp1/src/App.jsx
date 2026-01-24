@@ -1,4 +1,3 @@
-import './App.css'
 import Header from './components/Header'
 import Dashboard from './pages/dashboard'
 import Log from './pages/logs'
