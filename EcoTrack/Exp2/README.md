@@ -1,16 +1,59 @@
-# React + Vite
+# Eco-Track (Experiment 2)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Eco-Track Exp2 is an evolved version of the carbon tracking application, now featuring a secure authentication system, protected routes, and an organized dashboard layout with nested navigation.
 
-Currently, two official plugins are available:
+## New Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+* **Authentication System**: Implemented using React Context API to manage global login states across the application.
+* **Protected Routing**: A dedicated security layer that restricts access to the dashboard and logs, redirecting unauthenticated users to the Login page.
+* **Nested Dashboard Layout**: A unified dashboard interface containing sub-navigation for specialized views (Summary, Analytics, and Settings).
+* **Programmatic Navigation**: Uses React Router hooks to redirect users dynamically after login or logout actions.
 
-## React Compiler
+## Project Structure
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+* **`src/contexts/`**: Contains `AuthContext.jsx`, which provides the `isLoggedIn` state and `setIsLoggedIn` updater to the entire app.
+* **`src/protectedroutes/`**: Contains logic to gate-keep private content from unauthorized users.
+* **`src/pages/`**:
+* `Login.jsx`: Handles user authentication and navigation to the home route.
+* `DashboardLayout.jsx`: Provides the primary structure and navigation links for the dashboard sub-pages.
+* `DashboardSummary.jsx`, `DashboardAnalytics.jsx`, `DashboardSettings.jsx`: Specific views nested within the main dashboard.
+* `Logs.jsx`: Displays filtered activities with a carbon footprint of 4kg or higher.
 
-## Expanding the ESLint configuration
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+* **`src/App.jsx`**: Configures the main routing architecture using `BrowserRouter`, including nested and protected route definitions.
+
+## Tech Stack
+
+* **Frontend**: React 19
+* **Routing**: React Router DOM 7
+* **Build Tool**: Vite 7
+
+## Installation and Setup
+
+1. Navigate to the `Exp2` directory.
+2. Install dependencies:
+```bash
+npm install
+
+```
+
+
+3. Start the development server:
+```bash
+npm run dev
+
+```
+
+
+
+## Routing Map
+
+* `/login`: Public login page.
+* `/`: Main Dashboard (Protected).
+* `/summary`: Nested dashboard summary view.
+* `/analytics`: Nested dashboard analytics view.
+* `/settings`: Nested dashboard settings view.
+
+
+* `/logs`: High-carbon activity log (Protected).
+* `/logout`: Secure logout functionality (Protected).
