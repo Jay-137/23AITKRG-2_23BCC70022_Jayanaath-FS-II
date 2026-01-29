@@ -5,7 +5,8 @@ const DashboardLayout=()=>{
       <h2>Dashboard</h2>
       <nav>
         <Link to="summary">Summary</Link>{" | "}
-        <Link to="analytics">Analytics</Link>
+        <Link to="analytics">Analytics</Link>{" | "}
+        <Link to="settings">Settings</Link>
       </nav>
       <hr/>
       <Outlet/>
