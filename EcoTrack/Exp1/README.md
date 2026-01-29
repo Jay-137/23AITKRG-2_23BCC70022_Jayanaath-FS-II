@@ -1,16 +1,61 @@
-# React + Vite
+# Eco-Track (Experiment 1)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Eco-Track is a React-based web application designed to help users monitor their environmental impact by tracking carbon footprint data from various activities.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+* **Carbon Dashboard**: Displays the total accumulated carbon footprint and a detailed list of all logged activities.
+* **High-Impact Monitoring**: Automatically filters and displays specific activities that have a high carbon impact (greater than or equal to 4kg).
+* **Dynamic Header**: A reusable component that provides consistent branding across the application.
 
-## React Compiler
+## Project Structure
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+The application is organized into the following directory structure:
 
-## Expanding the ESLint configuration
+* **`src/components/`**: Contains reusable UI components like `Header.jsx`.
+* **`src/pages/`**: Contains the main view components:
+* `dashboard.jsx`: Manages the calculation and display of total carbon data.
+* `logs.jsx`: Handles the logic for filtering high-impact activities.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+
+* **`src/data/`**: Contains the central data store (`logs.js`) with activity records including IDs, activity names, and carbon values.
+* **`src/App.jsx`**: The main entry point that assembles the Header, Dashboard, and Logs sections.
+
+## Tech Stack
+
+* **Frontend**: React 19
+* **Build Tool**: Vite 7
+* **Linting**: ESLint 9
+
+## Getting Started
+
+### Prerequisites
+
+Ensure you have [Node.js](https://nodejs.org/) installed on your machine.
+
+### Installation
+
+1. Navigate to the `Exp1` directory.
+2. Install the required dependencies:
+```bash
+npm install
+
+```
+
+
+
+### Running the Application
+
+To start the development server, run:
+
+```bash
+npm run dev
+
+```
+
+To build the project for production, run:
+
+```bash
+npm run build
+
+```
