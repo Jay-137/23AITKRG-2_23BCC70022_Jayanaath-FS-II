@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { useAuth } from "../contexts/AuthContext";
+import Logout from "../pages/Logout";
 
 const Header=()=>{
   const {isLoggedIn}=useAuth();
@@ -10,8 +11,7 @@ const Header=()=>{
       <nav>
         <Link to="/" style={{color:"white"}}>Dashboard</Link>{" | "}
         <Link to="/logs" style={{color:"white"}}>Logs</Link>{" | "}
-        <Link to="/login" style={{color:"white"}}>Login</Link>{" | "}
-        <Link to="/logout" style={{color:"white"}}>Logout</Link>
+        {isLoggedIn?(<Logout/>):(<Link to="/login" style={{color:"white"}}>Login</Link>)}
       </nav>
     </header>
   )
